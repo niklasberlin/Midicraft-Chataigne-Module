@@ -1,0 +1,83 @@
+{
+	"name": "Midicraft",
+	"type": "MIDI",
+	"path": "Hardware",
+	
+	"version": "0.1",
+	"description": "Allow you to control LED Feddback on Midicraft Controllers with chataigne",
+	"url":"",
+	"downloadURL": "",
+	
+	"hasInput": true,
+	"hasOutput": true, 
+
+	"hideDefaultCommands": false,
+	"hideDefaultParameters": [
+		"autoFeedback"
+	],
+
+	"defaults": {
+		"useHierarchy": true
+	},
+	
+	"parameters": {
+	},
+	
+	"scripts": [
+		"midicraft.js"
+	],
+	
+	"values": {
+	},
+	
+	"commands": {
+		
+		"Set LED" : {
+			"menu" : "LED",
+			"callback" : "set_led",
+			"parameters" : {
+				"Channel" : {
+					"type":"Integer",
+					"default": 1, 
+					"min":1,
+					"max":16
+				},
+				"Note" : {
+					"type":"Integer",
+					"default": 0, 
+					"min":0,
+					"max":127
+				},
+				"Animation": {
+					"type": "Enum",
+					"options":{
+						"off":0,
+						"static dark" : 1,
+						"static bright" : 15,
+						"flash dark-bright" : 29,
+						"flash off-dark" : 43
+					}
+				}, 
+				"Color": {
+					"type": "Enum",
+					"options":{
+						"White":0,
+						"Red":1,
+						"Orange":2,
+						"Yellow":3,
+						"ferngreen":4,
+						"green":5,
+						"seagreen":6,
+						"cyan":7,
+						"lavender":8,
+						"blue":9,
+						"purple":10,
+						"magenta":11,
+						"pink":12,
+						"default":100	
+					}
+				} 
+			}
+		}
+	}
+}
