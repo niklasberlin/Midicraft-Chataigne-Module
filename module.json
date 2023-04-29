@@ -53,18 +53,19 @@
 					"options":{
 						"off":0,
 						"static dark" : 1,
-						"static bright" : 15,
-						"flash dark-bright" : 29,
-						"flash off-dark" : 43
+						"static bright" : 17,
+						"complementary color":33,
+						"flash dark-bright" : 49,
+						"controller feedback" : 65
 					}
 				}, 
 				"Color": {
 					"type": "Enum",
 					"options":{
-						"White":0,
-						"Red":1,
-						"Orange":2,
-						"Yellow":3,
+						"white":0,
+						"red":1,
+						"orange":2,
+						"yellow":3,
 						"ferngreen":4,
 						"green":5,
 						"seagreen":6,
@@ -74,6 +75,8 @@
 						"purple":10,
 						"magenta":11,
 						"pink":12,
+						"CTO":13,
+						"CTB":14,
 						"default":100	
 					}
 				} 
