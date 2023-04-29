@@ -13,7 +13,9 @@
 
 	"hideDefaultCommands": false,
 	"hideDefaultParameters": [
-		"autoFeedback"
+		"autoFeedback",
+		"tempo",
+		"mtc"
 	],
 
 	"defaults": {

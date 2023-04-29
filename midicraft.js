@@ -1,5 +1,6 @@
 function init() {
-	
+	local.values.removeContainer("tempo");
+	local.values.removeContainer("mtc");
 }
 
 
