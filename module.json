@@ -83,6 +83,38 @@
 					}
 				} 
 			}
+		},
+		"Set LED by Color" :{
+			"menu":"LED",
+			"callback":"set_LED_by_color",
+			"parameters" : {
+				"Channel" : {
+					"type":"Integer",
+					"default": 1, 
+					"min":1,
+					"max":16
+				},
+				"Note" : {
+					"type":"Integer",
+					"default": 0, 
+					"min":0,
+					"max":127
+				},
+				"Animation": {
+					"type": "Enum",
+					"options":{
+						"off":0,
+						"static dark" : 1,
+						"static bright" : 17,
+						"complementary color":33,
+						"flash dark-bright" : 49,
+						"controller feedback" : 65
+					}
+				}, 
+				"Color": {
+					"type": "Color"
+				} 
+			}
 		}
 	}
 }
