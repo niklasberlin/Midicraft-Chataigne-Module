@@ -27,20 +27,55 @@ function color2midi(color) {
 	red = red / max;
 	green = green / max;
 	blue = blue / max;
+
+	// 0 - white
+	// 1 - rot
+	// 2 - Orange
+	// 3 - Gelb
+	// 4 - Gelbgrün
+	// 5 - Grün
+	// 6 - Meergrün
+	// 7 - Cyan
+	// 8 - Lavendel
+	// 9 - Blau
+	// 10 - Lila
+	// 11 - Magenta
+	// 12 - Pink
+	// 13 - CTO
+	// 14 - CTB
 	if (red == 1 && green < 0.3 && blue < 0.3) {
 		return 1; //red
 	} else if (red < 0.3 && green == 1 && blue < 0.3) {
-		return 2; //green
-	} else if (red >= 0.3 && green >= 0.3 && blue < 0.3) {
-		return 3; //yellow
+		return 5; //green
 	} else if (red < 0.3 && green < 0.3 && blue == 1) {
-		return 4; //blue
-	} else if (red >= 0.3 && green < 0.3 && blue >= 0.3) {
-		return 5; //magenta
-	} else if (red < 0.3 && green >= 0.3 && blue >= 0.3) {
-		return 6; //Cyan
-	} else if (red >= 0.3 && green >= 0.3 && blue >= 0.3) {
-		return 7; //white
+		return 9; //blue
+	} else if (red > 0.7 && green > 0.7 && blue < 0.3) {
+		return 3; //yellow
+	} else if (red > 0.7 && green < 0.3 && blue > 0.7) {
+		return 11; //magenta
+	} else if (red < 0.3 && green > 0.7 && blue > 0.7) {
+		return 7; //cyan
+	} else if (red == 1 && green <= 0.7 && blue < 0.3) {
+		return 2; //ornage
+	} else if (red <= 0.7 && green == 1 && blue < 0.3) {
+		return 4; //ferngreen
+	} else if (red < 0.3 && green == 1 && blue <= 0.7) {
+		return 6; //seagreen
+	} else if (red < 0.3 && green <= 0.7 && blue == 1) {
+		return 8; //lavender
+	} else if (red <= 0.7 && green < 0.3 && blue == 1) {
+		return 10; //violet
+	} else if (red == 1 && green < 0.3 && blue <= 0.7) {
+		return 12; //pink
+	} else if (red > 0.85 && green > 0.85 && blue > 0.85) {
+		return 0; //white
+	} else if (red > 0.9 && green > 0.65 && blue > 0.35 && blue < green) {
+		return 13; //CTO
+	} else if (red > 0.35 && green > 0.65 && blue > 0.9 && red < green) {
+		return 14; //CTB
+	} else {
+		return 100; //Default as set in controller
+		script.log("coudn't match provided color, using color set in controller instead");
 	}
 }
 
@@ -72,4 +107,9 @@ function set_led(channel, note, animation, color) {
 		//compute velocity for all feedbacks where we want to control the color
 		local.sendNoteOn(channel, note, animation + color);
 	}
+}
+
+function set_LED_by_color(channel, note, animation, colorvalue) {
+	color = color2midi(colorvalue);
+	set_led(channel, note, animation, color);
 }
