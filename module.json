@@ -3,7 +3,7 @@
 	"type": "MIDI",
 	"path": "Hardware",
 	
-	"version": "0.1",
+	"version": "0.2",
 	"description": "Allow you to control LED Feddback on Midicraft Controllers with chataigne",
 	"url":"https://github.com/niklasberlin/Midicraft-Chataigne-Module",
 	"downloadURL": "https://github.com/niklasberlin/Midicraft-Chataigne-Module/archive/refs/heads/main.zip",
